@@ -1,0 +1,15 @@
+<?php
+ $mas = ['melannet', 'melanett', 'melannet', 'меланнетт', 'меланетт', 'меланнет', 'анна+мельникова'];
+
+  foreach ($mas as $oneQuery)
+  {
+    $xpath = new DOMXPath(DOMDocument :: loadHTMLFile('https://www.avito.ru/rossiya?q=' . $oneQuery));
+
+    $query = "//img[contains(@class,'large-picture-img')]";
+
+    foreach ($xpath->query($query) as $node) { ?>
+      <h2><a href="<?= $node->getAttribute("alt") ?>"><?= $node->getAttribute("alt") ?></a></h2>
+      <img src="<?= $node->getAttribute("src") ?>">
+    <?php } ?>
+    
+  <?php } ?>
