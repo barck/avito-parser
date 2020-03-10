@@ -74,6 +74,7 @@
     }
   }
 
+  //КОНЕЦ ПАРСИНГА
 
   function super_unique($array) {
     $result = array_map("unserialize", array_unique(array_map("serialize", $array)));
@@ -93,8 +94,7 @@
       <?php $count++ ?>
       <img src="<?= $key[0] ?>">
       <button class="btn-delete">УДОЛИТЬ</button>
-  </div>
-
+    </div>
   <?php } ?>
 
 <textarea id="temp" cols="30" rows="10"></textarea>
@@ -118,7 +118,7 @@
     for(var i = 0; i < finalLinks.length; i++){
       tempArea.value += finalLinks[i].querySelector('a').href + '\n';
     }
-    navigator.clipboard.writeText(tempArea.value);
+    navigator.clipboard.writeText(tempArea.value.slice(0, -1));
   }); 
 
 </script>
