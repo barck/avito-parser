@@ -29,7 +29,7 @@
 <body>
 
 <a href="/">На главную</a>
-<a href="#" class="btn-copy">Скопировать все ссылки и нагнуть барыгу</a>
+<a href="#" class="btn-copy" target="_blank">Скопировать все ссылки и нагнуть барыгу</a>
 <?php
 
   $dirtyLinks = explode(',', @$_COOKIE['author']);
@@ -137,6 +137,7 @@
       tempArea.value += finalLinks[i].querySelector('a').href + '\n';
     }
     navigator.clipboard.writeText(tempArea.value.slice(0, -1));
+    location.href = 'https://www.avito.ru/safety/sobstvennost/brand?<?= @$_COOKIE['author-avito'] ?>';
   }); 
 
 </script>
