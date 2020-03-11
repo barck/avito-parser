@@ -34,7 +34,6 @@
 
   $dirtyLinks = explode(',', @$_COOKIE['author']);
   $mas = [];
-  $count = 1;
   $linksArray = [];
 
   foreach ($dirtyLinks as $dirtyOne) {
@@ -89,9 +88,7 @@
   $finishArray = super_unique($linksArray);
   foreach ($finishArray as $arrayItem => $key) { ?>
     <div class="item">
-      <span class="count"><?= $count ?></span>
       <h2><a href="https://avito.ru<?= $arrayItem ?>"><?= $key[1] ?></a></h2>
-      <?php $count++ ?>
       <img src="<?= $key[0] ?>">
       <button class="btn-delete">УДОЛИТЬ</button>
     </div>
@@ -104,15 +101,36 @@
   let deleteButtons = document.querySelectorAll('.btn-delete'),
       copyBtn = document.querySelector('.btn-copy'),
       tempArea = document.querySelector('#temp'),
+      dirtyLinks = document.querySelectorAll('.item'),
       finalLinks = null;
 
-  for(var i = 0; i < deleteButtons.length; i++){
+  for(var i = 0; i < dirtyLinks.length; i++){ //удаление всякой дичи типа книг
+    let oneLink = dirtyLinks[i].querySelector('h2 a'),
+        pos = oneLink.textContent.toLowerCase().indexOf('духи') + 1;
+        pos2 = oneLink.textContent.toLowerCase().indexOf('хакама') + 1;
+        pos3 = oneLink.textContent.toLowerCase().indexOf('роза') + 1;
+        pos4 = oneLink.textContent.toLowerCase().indexOf('coat') + 1;
+        pos5 = oneLink.textContent.toLowerCase().indexOf('банки') + 1;
+        pos6 = oneLink.textContent.toLowerCase().indexOf('банка') + 1;
+        pos7 = oneLink.textContent.toLowerCase().indexOf('книг') + 1;
+        pos8 = oneLink.textContent.toLowerCase().indexOf('стих') + 1;
+        pos9 = oneLink.textContent.toLowerCase().indexOf('платье') + 1;
+        pos10 = oneLink.textContent.toLowerCase().indexOf('визажист') + 1;
+        pos11 = oneLink.textContent.toLowerCase().indexOf('детектив') + 1;
+        pos12 = oneLink.textContent.toLowerCase().indexOf('сочинени') + 1;
+        pos12 = oneLink.textContent.toLowerCase().indexOf('стрижк') + 1;
+    if ( pos || pos2 || pos3 || pos4 || pos5 || pos6 || pos7 || pos8 || pos9 || pos10 || pos11 || pos12 ) {
+      dirtyLinks[i].remove();
+    }
+  };
+
+  for(var i = 0; i < deleteButtons.length; i++){ //удаление элементов
     deleteButtons[i].addEventListener("click", function(e){
       e.target.parentNode.remove();
     }); 
   }
 
-  copyBtn.addEventListener("click", function(){
+  copyBtn.addEventListener("click", function(){ //получение ссылок и копирование их в буфер
     event.preventDefault();
     finalLinks = document.querySelectorAll('.item');
     for(var i = 0; i < finalLinks.length; i++){
