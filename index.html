@@ -45,14 +45,18 @@
 
     <h1>Anna Riazanovna AVITO CHECKER v0.1 BETA</h1>
 
-    <a href="./check.php" class="btn btn-miyabi">Мияби</a>
-    <a href="./check.php" class="btn btn-melannett">Меланнетт</a>
-    <a href="./check.php" class="btn btn-gess">Алина Гесс</a>
+    <a href="./check2.php" class="btn btn-miyabi">Мияби</a>
+    <a href="./check2.php" class="btn btn-melannett">Меланнетт</a>
+    <a href="./check2.php" class="btn btn-gess">Алина Гесс</a>
+    <a href="./check2.php" class="btn btn-bazanova">Ольга Базанова</a>
+    <a href="./check2.php" class="btn btn-krasina">Валентина Красина</a>
 
     <script>
       let miyabiBtn = document.querySelector('.btn-miyabi'),
           melannettBtn = document.querySelector('.btn-melannett'),
           gessBtn = document.querySelector('.btn-gess'),
+          bazanovaBtn = document.querySelector('.btn-bazanova'),
+          krasinaBtn = document.querySelector('.btn-krasina'),
           preloader = document.querySelector('.windows8');
           
           miyabiBtn.addEventListener("click", function(){
@@ -67,14 +71,28 @@
             event.preventDefault();
             document.cookie = "author=melannett,melanett,melannet,меланнетт,меланетт,меланнет,анна мельникова";
             document.cookie = "author-avito=melannett";
-            location.href = "/check.php"
+            location.href = "/check2.php"
           }); 
           gessBtn.addEventListener("click", function(){
             preloader.classList.add('show');
             event.preventDefault();
             document.cookie = "author=алина гесс";
             document.cookie = "author-avito=gess";
-            location.href = "/check.php"
+            location.href = "/check2.php"
+          }); 
+          bazanovaBtn.addEventListener("click", function(){
+            preloader.classList.add('show');
+            event.preventDefault();
+            document.cookie = "author=ольга базанова";
+            document.cookie = "author-avito=bazanova";
+            location.href = "/check2.php"
+          }); 
+          krasinaBtn.addEventListener("click", function(){
+            preloader.classList.add('show');
+            event.preventDefault();
+            document.cookie = "author=валентина красина";
+            document.cookie = "author-avito=krasina";
+            location.href = "/check2.php"
           }); 
     </script>
 

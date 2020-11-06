@@ -107,8 +107,10 @@
         pos10 = oneLink.textContent.toLowerCase().indexOf('визажист') + 1;
         pos11 = oneLink.textContent.toLowerCase().indexOf('детектив') + 1;
         pos12 = oneLink.textContent.toLowerCase().indexOf('сочинени') + 1;
-        pos12 = oneLink.textContent.toLowerCase().indexOf('стрижк') + 1;
-    if ( pos || pos2 || pos3 || pos4 || pos5 || pos6 || pos7 || pos8 || pos9 || pos10 || pos11 || pos12 ) {
+        pos13 = oneLink.textContent.toLowerCase().indexOf('стрижк') + 1;
+        pos14 = oneLink.textContent.toLowerCase().indexOf('открытка') + 1;
+        pos15 = oneLink.textContent.toLowerCase().indexOf('открыток') + 1;
+    if ( pos || pos2 || pos3 || pos4 || pos5 || pos6 || pos7 || pos8 || pos9 || pos10 || pos11 || pos12 || pos13 || pos14 || pos15 ) {
       dirtyLinks[i].remove();
     }
   };
